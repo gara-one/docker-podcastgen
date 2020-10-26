@@ -6,6 +6,7 @@ CHECK_BIN "wget"
 CHECK_BIN "unzip"
 CHECK_BIN "uwsgi"
 CHECK_VAR PODCASTGEN_VERSION
+CHECK_VAR PHP_SIZE
 
 DIR=/var/www/PodcastGenerator
 
@@ -20,6 +21,8 @@ if [[ ! -d $DIR ]]; then
 	chown -R www-data:www-data /var/www/
 	sed -i -e "s#^php-docroot\ *=.*#php-docroot\ =\ ${DIR}#" \
 		-e "s#^static-safe\ *=\ {{\ PODCASTGEN_DIR\ }}#static-safe\ =\ ${DIR}#" \
+		 -e "s#^php-set\ =\ post_max_size=100M#php-set\ =\ post_max_size=${PHP_SIZE}# \
+		  -e "s#^php-set\ =\ upload_max_filesize=100M#php-set\ =\ upload_max_filesize=${PHP_SIZE}# \		  
 		/etc/uwsgi/apps-available/podcastgen.conf
 fi
 
