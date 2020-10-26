@@ -12,7 +12,7 @@ DIR=/var/www/PodcastGenerator-${PODCASTGEN_VERSION}
 if [[ ! -d $DIR ]]; then
 	MSG "Downloading podcastgen..."
 	wget -O /tmp/podcastgen.zip \
-		https://sourceforge.net/projects/podcastgen/files/podcastgen/podcastgen-${PODCASTGEN_VERSION}/podcastgen-${PODCASTGEN_VERSION}.zip/download
+		https://github.com/albertobeta/PodcastGenerator/archive/v{PODCASTGEN_VERSION}.zip
 	[[ $? -eq 0 ]] || { ERR "Failed to download podcastgen, aborting."; exit 1; }
 	unzip -o -d /var/www /tmp/podcastgen.zip
 	[[ $? -eq 0 ]] || { ERR "Failed to unzip podcastgen, perhaps file is invalid?"; exit 1; }
