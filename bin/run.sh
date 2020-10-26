@@ -15,8 +15,9 @@ if [[ ! -d $DIR ]]; then
 	wget -O /tmp/podcastgen.zip \
 		https://github.com/albertobeta/PodcastGenerator/archive/v${PODCASTGEN_VERSION}.zip
 	[[ $? -eq 0 ]] || { ERR "Failed to download podcastgen, aborting."; exit 1; }
-	unzip -o -d /var/www /tmp/podcastgen.zip
+	unzip -o -d /tmp /tmp/podcastgen.zip
 	[[ $? -eq 0 ]] || { ERR "Failed to unzip podcastgen, perhaps file is invalid?"; exit 1; }
+	mv /tmp/PodcastGenerator-${PODCASTGEN_VERSION} ${DIR}
 	[[ -d $DIR ]] || { ERR "Directory $DIR does not exist, aborting."; exit 1; }
 	chown -R www-data:www-data /var/www/
 	sed -i -e "s#^php-docroot\ *=.*#php-docroot\ =\ ${DIR}#" \
