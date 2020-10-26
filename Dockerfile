@@ -7,7 +7,7 @@ RUN apt-get -qq update && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/*
 
-ENV PODCASTGEN_VERSION 2.7
+ENV PODCASTGEN_VERSION 3.1
 
 EXPOSE 80
 
