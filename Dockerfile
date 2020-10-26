@@ -8,6 +8,7 @@ RUN apt-get -qq update && \
 	rm -rf /var/lib/apt/lists/*
 
 ENV PODCASTGEN_VERSION 3.1
+ENV PHP_SIZE 300
 
 EXPOSE 80
 
