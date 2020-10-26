@@ -7,7 +7,7 @@ CHECK_BIN "unzip"
 CHECK_BIN "uwsgi"
 CHECK_VAR PODCASTGEN_VERSION
 
-DIR=/var/www/PodcastGenerator-${PODCASTGEN_VERSION}
+DIR=/var/www/PodcastGenerator
 
 if [[ ! -d $DIR ]]; then
 	MSG "Downloading podcastgen..."
